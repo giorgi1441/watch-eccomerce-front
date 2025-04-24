@@ -10,20 +10,24 @@ import { MatButton, MatIconButton } from '@angular/material/button';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
 import { MatMenu, MatMenuItem, MatMenuTrigger } from '@angular/material/menu';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
-  imports: [ MatIconModule, MatSidenavContainer, MatToolbar, MatNavList, MatListItem, MatIconButton, RouterOutlet, MatSidenav, MatSidenavContent, NgOptimizedImage, RouterLink, MatButton, MatMenuTrigger, MatMenu, MatMenuItem, MatDivider ],
+  imports: [ MatIconModule, MatSidenavContainer, MatToolbar, MatNavList, MatListItem, MatIconButton, RouterOutlet, MatSidenav, MatSidenavContent, NgOptimizedImage, RouterLink, MatButton, MatMenuTrigger, MatMenu, MatMenuItem, MatDivider, TranslatePipe ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   private readonly _breakpointObserver: BreakpointObserver = inject(BreakpointObserver);
+  private readonly _translateService: TranslateService = inject(TranslateService);
+
   readonly drawer: Signal<MatDrawer> = viewChild.required<MatDrawer>('drawer');
+  readonly selectedLanguage: WritableSignal<string> = signal('ქართ');
+  readonly selectedLanguageFlag: WritableSignal<string> = signal("georgia_flag");
   readonly opened: WritableSignal<boolean> = signal(false);
   readonly activeDrawer: WritableSignal<'nav' | 'cart' | 'search' | null> = signal(null);
-
-  isHandset: Signal<boolean> = toSignal(this._breakpointObserver.observe([ Breakpoints.TabletPortrait, Breakpoints.Handset ])
+  readonly isHandset: Signal<boolean> = toSignal(this._breakpointObserver.observe([ Breakpoints.TabletPortrait, Breakpoints.Handset ])
     .pipe(map(result => result.matches), shareReplay()), { initialValue: false });
 
   openDrawer(type: 'nav' | 'cart' | 'search') {
@@ -40,6 +44,9 @@ export class AppComponent {
     }
   }
 
-  chooseLanguage(language: string) {
+  chooseLanguage(lang: string, shortLang: string, flag: string) {
+    this._translateService.use(lang);
+    this.selectedLanguage.set(shortLang);
+    this.selectedLanguageFlag.set(flag);
   }
 }

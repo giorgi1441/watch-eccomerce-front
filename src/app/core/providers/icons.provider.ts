@@ -13,7 +13,7 @@ export const provideIcons = (): Provider => ({
     ]
     icons.forEach((icon: string) => {
       const name: string = icon.slice(0, -4);
-      iconRegistry.addSvgIcon(name, domSanitizer.bypassSecurityTrustResourceUrl(`/assets/images/icons/${ icon }`))
+      iconRegistry.addSvgIcon(name, domSanitizer.bypassSecurityTrustResourceUrl(`../../assets/images/icons/${ icon }`))
     })
   },
   deps: [ DomSanitizer, MatIconRegistry ]
