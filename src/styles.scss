@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+@use "assets/styles/colors";
+@use "tailwindcss";
+@use '@angular/material' as mat;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+:root {
+  @include mat.divider-overrides((
+    color: var(--alpha-100),
+  ));
+
+  @include mat.menu-overrides((
+    item-label-text-size: 16px,
+    item-label-text-line-height: 20px,
+    item-label-text-weight: 500,
+    item-label-text-color: var(--alpha-700),
+    container-color: var(--additional),
+    divider-color: red,
+    container-elevation-shadow: "0px 6px 12px 0px #0000001A",
+    divider-bottom-spacing: 0,
+    divider-top-spacing: 0,
+    container-shape: 16px,
+    item-spacing: 16px,
+    item-hover-state-layer-color: var(--alpha-50)
+  ));
+}

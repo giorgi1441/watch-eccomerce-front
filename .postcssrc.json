@@ -1,0 +1,16 @@
+{
+  "plugins": {
+    "@tailwindcss/postcss": {
+      "boxShadow": {
+        "xs": "0px 1px 4px 0px #0000001A",
+        "sm": "0px 1px 4px 0px #0000001A",
+        "md": "0px 6px 12px 0px #0000001A",
+        "lg": "0px 8px 24px 0px #0000001A",
+        "xl": "0px 12px 36px 0px #0000001A",
+        "focus": "0px 0px 0px 3px #B4DFFF",
+        "focus-white": "0px 0px 0px 4px rgba(255, 255, 255, 0.08)",
+        "focus-secondary": "0px 0px 0px 4px rgba(30, 110, 145, 0.10)"
+      }
+    }
+  }
+}
