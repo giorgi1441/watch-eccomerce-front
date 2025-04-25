@@ -5,7 +5,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { MatToolbar } from '@angular/material/toolbar';
-import { MatDivider, MatListItem, MatNavList } from '@angular/material/list';
+import { MatDivider, MatList, MatListItem, MatNavList } from '@angular/material/list';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
@@ -14,7 +14,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
-  imports: [ MatIconModule, MatSidenavContainer, MatToolbar, MatNavList, MatListItem, MatIconButton, RouterOutlet, MatSidenav, MatSidenavContent, NgOptimizedImage, RouterLink, MatButton, MatMenuTrigger, MatMenu, MatMenuItem, MatDivider, TranslatePipe ],
+  imports: [ MatIconModule, MatSidenavContainer, MatToolbar, MatNavList, MatListItem, MatIconButton, RouterOutlet, MatSidenav, MatSidenavContent, NgOptimizedImage, RouterLink, MatButton, MatMenuTrigger, MatMenu, MatMenuItem, MatDivider, TranslatePipe, MatList ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

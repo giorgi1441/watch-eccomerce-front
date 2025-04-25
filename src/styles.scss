@@ -2,27 +2,36 @@
 @use "assets/styles/colors";
 @use "tailwindcss";
 @use '@angular/material' as mat;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-html, body {
-  height: 100%;
-}
+  html, body {
+    height: 100%;
+  }
 
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
+  body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+  }
 
-ul, ol {
-  list-style: none;
+  ul, ol {
+    list-style: none;
+  }
 }
 
 :root {
+  @include mat.sidenav-overrides((
+    content-background-color: var(--additional)
+  ));
+
   @include mat.divider-overrides((
     color: var(--alpha-100),
   ));
@@ -40,5 +49,21 @@ ul, ol {
     container-shape: 16px,
     item-spacing: 16px,
     item-hover-state-layer-color: var(--alpha-50)
+  ));
+
+  @include mat.sidenav-overrides((
+    container-shape: 0,
+    container-width: 400px,
+    scrim-color: var(--alpha-700),
+  ));
+
+  @include mat.toolbar-overrides((
+    container-background-color: var(--additional)
+  ));
+
+  @include mat.list-overrides((
+    list-item-one-line-container-height: auto,
+    list-item-leading-icon-end-space: 16px,
+    list-item-leading-icon-start-space: 16px,
   ));
 }
