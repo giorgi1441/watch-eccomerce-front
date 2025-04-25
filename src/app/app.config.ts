@@ -1,18 +1,24 @@
 import { ApplicationConfig, importProvidersFrom, provideZoneChangeDetection, TransferState } from '@angular/core';
 import { PreloadAllModules, provideRouter, withPreloading, withViewTransitions } from '@angular/router';
-import { provideClientHydration, withEventReplay, withHttpTransferCacheOptions } from '@angular/platform-browser';
+import {
+  provideClientHydration,
+  withEventReplay,
+  withHttpTransferCacheOptions,
+  withIncrementalHydration
+} from '@angular/platform-browser';
 import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { routes } from './app.routes';
 import { provideIcons } from './core/providers/icons.provider';
 import { TranslateBrowserLoader } from './core/loaders/translate-browser.loader';
+import { provideDialogDefaultOptions } from './core/providers/dialog.provider';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes, withViewTransitions(), withPreloading(PreloadAllModules)),
-    provideClientHydration(withHttpTransferCacheOptions({ includePostRequests: true }), withEventReplay()),
+    provideClientHydration(withHttpTransferCacheOptions({ includePostRequests: true }), withEventReplay(), withIncrementalHydration()),
     provideHttpClient(withFetch()),
     provideIcons(),
     importProvidersFrom(TranslateModule.forRoot({
@@ -23,5 +29,6 @@ export const appConfig: ApplicationConfig = {
       },
       defaultLanguage: 'geo'
     })),
+    provideDialogDefaultOptions()
   ]
 };

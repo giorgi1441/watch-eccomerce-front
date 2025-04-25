@@ -25,6 +25,10 @@
   ul, ol {
     list-style: none;
   }
+
+  .bg-alpha-700 {
+    background: var(--alpha-700);
+  }
 }
 
 :root {
