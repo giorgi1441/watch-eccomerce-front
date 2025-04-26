@@ -1,33 +1,39 @@
-<div class="w-full md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-  <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+<div class="w-full">
+    <h1 mat-dialog-title>
       Sign in to your account
     </h1>
-    <form class="grid gap-2" [formGroup]="loginForm">
-      <mat-form-field class="w-full">
-        <mat-label>Email</mat-label>
-        <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
-      </mat-form-field>
-      <mat-form-field class="w-full">
-        <mat-label>Password</mat-label>
-        <input type="password" matInput formControlName="password">
-      </mat-form-field>
+    <mat-dialog-content>
+      <form class="grid gap-2" [formGroup]="loginForm">
+        <mat-form-field class="w-full" [hideRequiredMarker]="true">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="w-full" [hideRequiredMarker]="true">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput formControlName="password">
+        </mat-form-field>
 
-      <div class="flex items-center justify-between">
-        <mat-checkbox formControlName="remember">Remember Me</mat-checkbox>
-        <button mat-button>
-          Forgot password?
+        <div class="flex items-center justify-between">
+          <mat-checkbox formControlName="remember">Remember Me</mat-checkbox>
+          <button mat-button>
+            Forgot password?
+          </button>
+        </div>
+        <button type="submit" mat-flat-button (click)="login()">
+          Sign in
         </button>
-      </div>
-      <button type="submit" mat-flat-button>
-        Sign in
-      </button>
-      <p class="text-sm font-light text-gray-500 dark:text-gray-400 flex items-center">
-        Don’t have an account yet?
-        <button mat-button>
-          Sign up
+
+        <button mat-button style="padding: 1rem;">
+          <mat-icon svgIcon="google" style="width: 0.9rem"></mat-icon>
+          Login With Google
         </button>
-      </p>
-    </form>
-  </div>
+
+        <p class="text-sm font-light text-gray-500 dark:text-gray-400 flex items-center">
+          Don’t have an account yet?
+          <button mat-button>
+            Sign up
+          </button>
+        </p>
+      </form>
+    </mat-dialog-content>
 </div>

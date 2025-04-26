@@ -9,7 +9,9 @@ export const provideIcons = (): Provider => ({
     const icons: Array<string> = [
       "georgia_flag.svg",
       "usa_flag.svg",
-      "russia_flag.svg"
+      "russia_flag.svg",
+      "google.svg",
+      "facebook.svg",
     ]
     icons.forEach((icon: string) => {
       const name: string = icon.slice(0, -4);

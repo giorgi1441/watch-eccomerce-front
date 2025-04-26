@@ -2,6 +2,7 @@
 @use "assets/styles/colors";
 @use "tailwindcss";
 @use '@angular/material' as mat;
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -69,5 +70,22 @@
     list-item-one-line-container-height: auto,
     list-item-leading-icon-end-space: 16px,
     list-item-leading-icon-start-space: 16px,
+  ));
+
+  @include mat.form-field-overrides((
+    filled-container-shape: 6px,
+    filled-error-active-indicator-color: var(--negative-500),
+    filled-error-focus-active-indicator-color: var(--negative-500),
+    filled-error-hover-active-indicator-color:  var(--negative-500),
+    filled-error-label-text-color:  var(--negative-500),
+    filled-error-hover-label-text-color:  var(--negative-500),
+    filled-error-focus-label-text-color:   var(--negative-500),
+    filled-container-color: var(--alpha-50),
+    filled-disabled-container-color: var(--alpha-50),
+    filled-label-text-color: var(--alpha-600),
+    filled-input-text-color: var(--alpha-900),
+    container-height: 60px,
+    hover-state-layer-opacity: 1,
+    state-layer-color: var(--alpha-100),
   ));
 }
